@@ -31,7 +31,6 @@ public class ScoreManager : MonoBehaviour
         {
             scoreP2++;
         }
-        ResetPosition();
         StartCoroutine(Restart());
     }
 
@@ -57,6 +56,7 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator Restart()
     {
+
         if(countdownTime > 0)
         {
             countdownTime--;
@@ -68,6 +68,7 @@ public class ScoreManager : MonoBehaviour
         {
             countdownTime = 3;
             StopCoroutine(Restart());
+            ResetPosition();
         }
   
     }
