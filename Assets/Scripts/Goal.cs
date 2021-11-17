@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private ParticleSystem particle;
     [SerializeField] private int player;
 
     private void OnTriggerEnter(Collider other)
@@ -13,6 +14,7 @@ public class Goal : MonoBehaviour
         {
             scoreManager.AddScore(player);
             CameraShaker.instance.CameraShake();
+            particle.Play();
         }
     }
 }

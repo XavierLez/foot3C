@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
 
     private float scoreP1;
     private float scoreP2;
+    [SerializeField] private TextMeshProUGUI scoreTxtP1;
+    [SerializeField] private TextMeshProUGUI scoreTxtP2;
     [SerializeField] private Transform[] objects;
     [SerializeField] private Transform[] positions;
 
@@ -26,10 +28,12 @@ public class ScoreManager : MonoBehaviour
         if (player == 1)
         {
             scoreP1++;
+            scoreTxtP1.text = scoreP1.ToString();
         }
         else if (player == 2)
         {
             scoreP2++;
+            scoreTxtP2.text = scoreP2.ToString();
         }
         StartCoroutine(Restart());
     }
