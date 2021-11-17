@@ -12,6 +12,7 @@ public class Goal : MonoBehaviour
         if (other.CompareTag("Ball")) 
         {
             scoreManager.AddScore(player);
+            CameraShaker.instance.CameraShake();
         }
     }
 }

@@ -12,7 +12,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private string inputThrow;
     [SerializeField] private float speed;
     [SerializeField] private float speedMultiplier;
-
+    
+    [SerializeField] private TrailRenderer trail;
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCD;
     private bool isOnCD;
@@ -75,10 +76,12 @@ public class PlayerInput : MonoBehaviour
         isDashing = true;
         canMove = false;
         isOnCD = true;
+        trail.emitting = true;
         rb.AddForce(Vector3.right * xDirection * speedMultiplier + Vector3.forward * zDirection * speedMultiplier, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(t);
 
+        trail.emitting = false;
         rb.velocity = Vector3.zero;
         canMove = true;
         isDashing = false;
