@@ -7,10 +7,16 @@ public class BallInteraction : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform ballPos;
+    [SerializeField] private SphereCollider trigger;
+    [SerializeField] private SphereCollider collider;
     [SerializeField] private float throwForce;
     [SerializeField] private float takeCD;
     private bool hasBall;
     private bool canTakeBall;
+    Coroutine coroutineTakeBall;
+    [SerializeField] private PlayerInput playerInput;
+
+    public GameObject ball;
 
     private void Start()
     {
@@ -26,7 +32,49 @@ public class BallInteraction : MonoBehaviour
             rb.isKinematic = true;
             hasBall = true;
             canTakeBall = false;
+            ball = other.gameObject;
+            collider.enabled = false;
+            trigger.enabled = false;
         }
+    }
+
+    private BallInteraction otherBI;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player") && playerInput.isDashing) 
+        {
+            otherBI = collision.transform.GetComponent<BallInteraction>();
+            if (otherBI.GetHasBall()) 
+            {
+                TakeBall(otherBI.LeaveBall());
+            }
+        }
+    }
+
+    public void TakeBall(GameObject ball) 
+    {
+        this.ball = ball;
+        rb.transform.parent = ballPos;
+        rb.transform.position = ballPos.position;
+        rb.isKinematic = true;
+        hasBall = true;
+        canTakeBall = false;
+    }
+
+    public GameObject LeaveBall() 
+    {
+        if (hasBall)
+        {
+            rb.isKinematic = false;
+            rb.transform.parent = null;
+            hasBall = false;
+            coroutineTakeBall = StartCoroutine(CanTakeBallCoroutine(takeCD));
+            GameObject ball = this.ball;
+            this.ball = null;
+            return ball;
+        }
+        else return null;
     }
 
     public void ThrowBall(Vector3 direction) 
@@ -37,7 +85,10 @@ public class BallInteraction : MonoBehaviour
             rb.transform.parent = null;
             rb.AddForce(direction * throwForce);
             hasBall = false;
-            StartCoroutine(CanTakeBallCoroutine(takeCD));
+            ball = null;
+            collider.enabled = true;
+            trigger.enabled = true;
+            coroutineTakeBall = StartCoroutine(CanTakeBallCoroutine(takeCD));
         }
     }
 
@@ -46,10 +97,15 @@ public class BallInteraction : MonoBehaviour
         yield return new WaitForSeconds(t);
 
         canTakeBall = true;
+        coroutineTakeBall = null;
     }
 
     public float GetThrowForce() 
     {
         return this.throwForce;
+    }
+    public bool GetHasBall() 
+    {
+        return this.hasBall;
     }
 }

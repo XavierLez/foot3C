@@ -50,6 +50,7 @@ public class ScoreManager : MonoBehaviour
         if (scoreP1 >= scoreMax || scoreP2 >= scoreMax) 
         {
             menu.SetActive(true);
+            resetScore();
         }
 
     }

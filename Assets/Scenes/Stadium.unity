@@ -632,6 +632,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5789303228291871307, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
   m_PrefabInstance: {fileID: 1126008385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &998054266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+  m_PrefabInstance: {fileID: 1126008385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82329378974ff14bb65dbe4670fc8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1126008385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -639,6 +650,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputDash
+      value: Fire1P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputThrow
+      value: Fire2P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputForward
+      value: VerticalP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputHorizontal
+      value: HorizontalP1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789303228291871307, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -683,6 +710,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1854500146}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 1854500142}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 1854500147}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 998054266}
     - target: {fileID: 5789303228291871311, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -694,6 +737,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5789303228291871307, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
   m_PrefabInstance: {fileID: 5789303227260032127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182836278 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+  m_PrefabInstance: {fileID: 5789303227260032127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82329378974ff14bb65dbe4670fc8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1256549314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,6 +1351,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputDash
+      value: Fire1P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputThrow
+      value: Fire2P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputForward
+      value: VerticalP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789303228291871305, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: inputHorizontal
+      value: HorizontalP2
+      objectReference: {fileID: 0}
     - target: {fileID: 5789303228291871307, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1345,6 +1415,18 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1854500146}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 1854500142}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 1854500147}
+    - target: {fileID: 5789303228291871310, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1182836278}
     - target: {fileID: 5789303228291871311, guid: e9fca1077184c7a43aad04ffdc1b1047, type: 3}
       propertyPath: m_Name
       value: Player

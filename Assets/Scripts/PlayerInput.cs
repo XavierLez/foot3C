@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float dashCD;
     private bool isOnCD;
     private bool canMove;
+    public bool isDashing;
 
     [SerializeField] private BallInteraction ballInteraction;
 
@@ -71,6 +72,7 @@ public class PlayerInput : MonoBehaviour
 
     IEnumerator DashCoroutine(float t) 
     {
+        isDashing = true;
         canMove = false;
         isOnCD = true;
         rb.AddForce(Vector3.right * xDirection * speedMultiplier + Vector3.forward * zDirection * speedMultiplier, ForceMode.VelocityChange);
@@ -79,6 +81,7 @@ public class PlayerInput : MonoBehaviour
 
         rb.velocity = Vector3.zero;
         canMove = true;
+        isDashing = false;
     }
 
     IEnumerator CDCoroutine(float t) 
