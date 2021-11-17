@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
         {
             scoreP2++;
         }
-        StartCoroutine(Restart());
+        StartCoroutine(Restart(countdownTime));
     }
 
     private void ResetPosition() 
@@ -55,10 +55,23 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    IEnumerator Restart()
+    IEnumerator Restart(float t)
     {
+        t -= 1;
+        countdownText.text = t.ToString();
+        yield return new WaitForSeconds(1);
 
-        if(countdownTime > 0)
+        if (t > 0)
+        {
+            StartCoroutine(Restart(t));
+        }
+        else 
+        {
+            countdownText.text = "";
+            ResetPosition();
+        }
+
+        /*if(countdownTime > 0)
         {
             countdownTime--;
             yield return new WaitForSeconds(1);
@@ -68,9 +81,9 @@ public class ScoreManager : MonoBehaviour
         else
         {
             countdownTime = 3;
-            StopCoroutine(Restart());
+            //StopCoroutine(Restart());
             ResetPosition();
-        }
+        }*/
   
     }
 }

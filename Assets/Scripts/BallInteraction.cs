@@ -13,8 +13,8 @@ public class BallInteraction : MonoBehaviour
     [SerializeField] private float takeCD;
     private bool hasBall;
     private bool canTakeBall;
-    Coroutine coroutineTakeBall;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private CameraShaker cameraShaker;
 
     public GameObject ball;
 
@@ -48,6 +48,7 @@ public class BallInteraction : MonoBehaviour
             if (otherBI.GetHasBall()) 
             {
                 TakeBall(otherBI.LeaveBall());
+                cameraShaker.CameraShake();
             }
         }
     }
@@ -69,9 +70,9 @@ public class BallInteraction : MonoBehaviour
             rb.isKinematic = false;
             rb.transform.parent = null;
             hasBall = false;
-            coroutineTakeBall = StartCoroutine(CanTakeBallCoroutine(takeCD));
             GameObject ball = this.ball;
             this.ball = null;
+            StartCoroutine(CanTakeBallCoroutine(takeCD));
             return ball;
         }
         else return null;
@@ -88,7 +89,7 @@ public class BallInteraction : MonoBehaviour
             ball = null;
             collider.enabled = true;
             trigger.enabled = true;
-            coroutineTakeBall = StartCoroutine(CanTakeBallCoroutine(takeCD));
+            StartCoroutine(CanTakeBallCoroutine(takeCD));
         }
     }
 
@@ -97,7 +98,6 @@ public class BallInteraction : MonoBehaviour
         yield return new WaitForSeconds(t);
 
         canTakeBall = true;
-        coroutineTakeBall = null;
     }
 
     public float GetThrowForce() 
